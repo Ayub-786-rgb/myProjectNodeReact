@@ -1,0 +1,288 @@
+/* General application style */
+.App {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Container for the blog items */
+.blog-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Space between the blog items */
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+/* Style for each blog item */
+.blog-item {
+  background: #e2f0f4; /* Light cyan color for the card background */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  gap: 16px; /* Space between elements */
+  width: calc(33.333% - 16px); /* Three items per row with gap consideration */
+  box-sizing: border-box; /* Include padding and border in the width */
+  min-height: 200px; /* Ensure minimum height to fit content */
+  position: relative; /* For positioning the actions container */
+}
+
+/* Ensure the content grows and takes available space */
+.blog-item .content {
+  flex: 1; /* Allow content to grow and shrink */
+  font-size: 16px;
+  color: #333;
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  word-wrap: break-word; /* Ensure long words break correctly */
+}
+
+/* Actions container style */
+.blog-item .actions {
+  display: flex;
+  justify-content: space-between; /* Distribute buttons evenly */
+  margin-top: auto; /* Push actions container to the bottom */
+  gap: 8px; /* Space between buttons */
+}
+
+/* Style for action buttons */
+.blog-item .actions button {
+  border: 2px solid transparent; /* Transparent border to start */
+  border-radius: 50%; /* Circular button */
+  width: 36px; /* Button diameter */
+  height: 36px; /* Button diameter */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff; /* White background color of button */
+  cursor: pointer;
+  font-size: 18px; /* Icon size */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333; /* Default icon color */
+}
+
+/* Edit button style */
+.blog-item .actions button.edit {
+  border-color: #4CAF50; /* Green border */
+}
+
+.blog-item .actions button.edit .fa-edit {
+  color: #4CAF50; /* Green icon color */
+}
+
+/* Delete button style */
+.blog-item .actions button.delete {
+  border-color: #F44336; /* Red border */
+}
+
+.blog-item .actions button.delete .fa-trash {
+  color: #F44336; /* Red icon color */
+}
+
+/* Hover effects */
+.blog-item .actions button:hover {
+  opacity: 0.8; /* Slightly transparent on hover */
+}
+
+/* Responsive design: Adjust layout on smaller screens */
+@media (max-width: 768px) {
+  .blog-item {
+    width: calc(50% - 16px); /* Two items per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-item {
+    width: 100%; /* One item per row */
+  }
+}
+
+/* Header style */
+.blog-item h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Name and content on the same line */
+.blog-item .details {
+  align-items: center;
+  width: 100%;
+}
+
+/* Style for name and content */
+.blog-item .name {
+  font-size: 16px;
+  color: #555;
+  flex: 1; /* Take up available space */
+}
+
+/* Style for the BlogForm container */
+form {
+  background: #fff; /* White background for the form */
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 16px; /* Space between form elements */
+}
+
+/* Style for input fields */
+form input,
+form textarea {
+  display: block;
+  width: calc(100% - 16px); /* Full width minus padding */
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px; /* Rounded corners for input fields */
+  font-size: 16px;
+  background: #e2f0f4; /* Light blue background for input fields */
+}
+
+/* Style for form actions container */
+.form-actions {
+  display: flex;
+  justify-content: space-between; /* Space buttons to the ends */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Style for submit and cancel buttons */
+.form-actions button {
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 50px; /* Button diameter */
+  height: 50px; /* Button diameter */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px; /* Icon size */
+  color: #fff; /* White text color */
+  cursor: pointer;
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Style for submit button */
+.form-actions .submit {
+  border: 2px solid #4CAF50; /* Green border */
+  color: #4CAF50; /* Green icon color */
+}
+
+.form-actions .submit:hover {
+  background-color: #4CAF50; /* Green background on hover */
+  color: #fff; /* White text color on hover */
+}
+
+/* Style for cancel button */
+.form-actions .cancel {
+  border: 2px solid #F44336; /* Red border */
+  color: #F44336; /* Red icon color */
+}
+
+.form-actions .cancel:hover {
+  background-color: #F44336; /* Red background on hover */
+  color: #fff; /* White text color on hover */
+}
+
+/* Style for icon inside button */
+.form-actions button i {
+  font-size: 24px; /* Adjust icon size if needed */
+}
+
+
+/* Modal overlay style */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure the modal is on top */
+  padding: 20px; /* Add padding for content spacing */
+  box-sizing: border-box; /* Ensure padding is included in the width/height */
+}
+
+/* Modal content style */
+.modal-content {
+  background:#e2f0f4; /* White background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 20px;
+  max-width: 500px; /* Maximum width of the modal */
+  width: 100%; /* Full width within the container */
+  max-height: calc(100% - 40px); /* Ensure it fits within the viewport, adjusting for padding */
+  height: auto; /* Allow height to adjust based on content */
+  position: relative;
+  z-index: 1001; /* Ensure content is above the overlay */
+  box-sizing: border-box; /* Ensure padding is included in the width/height */
+}
+
+
+
+
+/* Style for close button icon */
+.modal-close i {
+  font-size: 24px; /* Adjust icon size if needed */
+}
+
+/* Ensure no extra margin around modal content */
+.modal-content > * {
+  margin: 0;
+}
+
+
+
+/* Style for the BlogList container */
+.List {
+  display: flex;
+  justify-content: space-between; /* Space between the heading and button */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px; /* Space below the BlogList container */
+}
+
+/* Heading style */
+.List h1 {
+  margin: 0;
+  font-size: 40px;
+  color: #007bff; /* Dark color for the heading */
+}
+
+/* Style for the button */
+.List button {
+  background-color: #fff; /* White background for the button */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 50%; /* Circular button */
+  width: 50px; /* Button diameter */
+  height: 50px; /* Button diameter */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px; /* Icon size */
+  color: #007bff; /* Blue icon color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.List button:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: #fff; /* White icon color on hover */
+  border-color: #007bff; /* Blue border on hover */
+}
+
+.List button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Custom focus outline */
+}
